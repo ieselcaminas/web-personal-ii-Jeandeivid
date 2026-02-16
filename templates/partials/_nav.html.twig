@@ -1,0 +1,53 @@
+   <header>
+         <!-- header inner -->
+         <div class="header">
+            <div class="container">
+               <div class="row">
+                  <div class="col-md-12 col-sm-3 col logo_section">
+                     <div class="full">
+                        <div class="center-desk">
+                           <div class="logo">
+                              <a href="{{path('index')}}"><img src="images/logo.png" alt="#" /></a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-md-10 offset-md-1">
+                     <nav class="navigation navbar navbar-expand-md navbar-dark ">
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarsExample04">
+                            <ul class="navbar-nav mr-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link {% if app.request.attributes.get('_route') == 'index' %}active{% endif %}" href="{{path('index')}}">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link {% if app.request.attributes.get('_route') == 'about' %}active{% endif %}" href="{{path('about')}}">About</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link {% if app.request.attributes.get('_route') == 'service' %}active{% endif %}" href="{{path('service')}}">Services</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link {% if app.request.attributes.get('_route') == 'gallery' %}active{% endif %}" href="{{path('gallery')}}">Gallery</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link {% if app.request.attributes.get('_route') == 'testimonial' %}active{% endif %}" href="{{path('testimonial')}}"> Testimonial </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link {% if app.request.attributes.get('_route') == 'contact' %}active{% endif %}" href="{{path('contact')}}">Contact Us</a>
+                                </li>
+                                {% if app.user %}
+                                    <li class="nav-item"><a class="nav-link" href="{{ path('app_logout') }}"><i class="fa fa-sign-out sr-icons"></i> {{ app.user.email }} - Logout</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="{{ path('new_post') }}"><i class="fa fa-plus-square sr-icons"></i> New post</a></li>
+                                {% else %}
+                                    <li class="nav-item {{ (app.request.attributes.get('_route') == 'app_login')  ? 'active': ''}} lien"><a class="nav-link" href="{{ path('app_login') }}"><i class="fa fa-sign-in sr-icons"></i> Login</a></li>
+                                    <li class="nav-item {{ (app.request.attributes.get('_route') == 'app_register')  ? 'active': ''}} "><a class="nav-link" href="{{ path('app_register') }}"><i class="fa fa-user-secret sr-icons"></i> Register</a></li>
+                                {% endif %}
+                            </ul>
+                        </div>   </nav>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </header>
